@@ -1,0 +1,185 @@
+/* Author: Ali Solanki (https://alisolanki.com) */
+
+body {
+    background-color: #0e0e0e;
+    color: #f1f1f1;
+    font-family: 'Poppins';
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+input {
+    color: #7cff7c;
+    background: transparent;
+    border: 1px solid #7cff7c;
+    border-radius: 5px;
+}
+input:focus {
+    outline: none;
+}
+
+.home-container {
+    margin: 10em 10px;
+}
+
+.home-container h1 {
+    padding-top: 0;
+    margin-bottom: 0;
+    margin-top: 0;
+    font-size: 3em;
+    color: #7cff7c;
+    stroke-width: 2px;
+    stroke: black;
+}
+
+.home-container h2 {
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+.home-container h3 {
+    padding-top: 0;
+    margin-top: 0;
+    color: #ff7c7c
+}
+
+/* Search Section */
+.search-box {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    margin: 0 auto;
+}
+
+.search-box input {
+    width: 300px;
+    height: 40px;
+    font-size: 1.2em;
+    padding-left: 10px;
+}
+
+.search-box button {
+    margin: 0.5em;
+    padding: 0.25em 0.5em;
+    border-radius: 2px;
+    background-color: #0e0e0e;
+    color: #7cff7c;
+    border: 0;
+    font-size: 1.2em;
+    transition: all 0.2s ease-in-out;
+}
+.search-box button:hover {
+    translate: 2px -2px;
+    box-shadow: -2px 2px 2px #7cff7c;
+    cursor: pointer;
+}
+
+.filters-container ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 10px;
+}
+
+.filters-container ul li {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content:left;
+    margin: 10px 10px;
+    color: #f1f1f1;
+}
+
+.filters-container ul li label {
+    font-size: 1em;
+}
+
+.filters-container ul li input {
+    margin-right: 10px;
+    width: 50px;
+    color: #f1f1f1;
+}
+.filters-container ul li input[inputmode="numeric"] {
+    width: 30px;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+}
+
+.filters-container ul li select {
+    background: transparent;
+    color: #f1f1f1;
+    border: none;
+}
+
+input[type="checkbox"] {
+    border: 1px solid #7cff7c;
+    border-radius: 2px;
+    color: #f1f1f1;
+}
+input[type="checkbox"]:checked {
+    border: none;
+    accent-color: #7cff7c;
+    background-color: #7cff7c;
+}
+
+/* Examples Section */
+
+.examples-container {
+    margin: 100px auto 0 auto;
+    padding: 0 1em;
+    width: fit-content;
+    border: 1px solid #7cff7c;
+    border-radius: 10px;
+    transition: all 0.2s ease-in-out;
+}
+
+.examples-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.example {
+    margin: 1em 10px;
+    padding: 0 1em;
+    width: fit-content;
+    border: 1px solid #7cff7c;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.example h5 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    text-align: left;
+    font-weight: 500;
+}
+
+.example p {
+    margin: 5px auto;
+    font-size: 1em;
+    text-align: left;
+}
+.example p#positive {
+    color: #7cff7c;
+}
+.example p#negative {
+    color: #ff7c7c;
+}
+.example p#neutral {
+    color: #f1f1f1;
+}
+
+/* Output */
+.output-container {
+    text-align: -webkit-center;
+}

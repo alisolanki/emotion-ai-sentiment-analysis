@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="static/favicon.ico" />
+    <link rel="stylesheet" href="static/css/home.css" />
+    <title>Emotion AI | Sentiment Analysis | Ali Solanki</title>
+</head>
+
+<body>
+    <div class="home-container">
+        <section>
+            <h2>Welcome to</h2>
+            <h1>Emotion AI</h1>
+            <h3>by Ali Solanki</h3>
+            <p>
+                Enter a word or a sentence to analyze people's sentiment towards by fetching tweets from Twitter
+            </p>
+        </section>
+
+        <section class="search-container">
+            <form action="" id="checker" method="POST">
+                {% csrf_token %}
+                <span class="search-box">
+                    <input type="text" name="query" value="{{context.query}}" placeholder="Check analysis for..." />
+                    <button type="submit" form="checker">Submit</button>
+                </span>
+                <!-- <button id="filter-btn">
+            <span class="filter-icon"></span>
+            <span class="filter-text">Filters</span>
+          </button> -->
+                <span class="filters-container">
+                    <ul class="filters-list">
+                        <li>
+                            <label for="min_faves">Minimum Likes</label>
+                            <input type="text" name="min_faves" inputmode="numeric" id="min_faves" min="0"
+                                value="{{context.min_faves}}" />
+                        </li>
+                        <li>
+                            <label for="min_retweets">Minimum Retweets</label><input type="text" name="min_retweets"
+                                inputmode="numeric" id="min_retweets" min="0" value="{{context.min_retweets}}" />
+                        </li>
+                        <li>
+                            <label for="min_replies">Minimum Replies</label><input type="text" name="min_replies"
+                                inputmode="numeric" id="min_replies" min="0" value="{{context.min_replies}}" />
+                        </li>
+                        <li>
+                            <label for="max_tweets">Maximum Tweets</label>
+                            <input type="text" name="max_tweets" inputmode="numeric" id="max_tweets" min="1" max="1000"
+                                value="{{context.max_tweets}}" />
+                        </li>
+                        <li>
+                            <label for="polarity">Polarity</label>
+                            <input type="text" name="polarity" inputmode="numeric" id="polarity" min="0" max="1"
+                                value="{{context.polarity}}" />
+                        </li>
+                        <li>
+                            <label for="subjectivity">Subjectivity</label>
+                            <input type="text" name="subjectivity" inputmode="numeric" id="subjectivity" min="0" max="1"
+                                value="{{context.subjectivity}}" />
+                        </li>
+                        <li>
+                            <label for="lang">Tweet Language</label><select id="lang" name="lang">
+                                <option value="en">English</option>
+                                <option value="hi">Hindi</option>
+                                <option value="ar">Arabic</option>
+                                <option value="fr">French</option>
+                            </select>
+                        </li>
+                        <li>
+                            <label for="filter_replies">Filter Replies?</label>
+                            {% if context.filter_replies %}
+                            <input type="checkbox" name="filter_replies" id="filter_replies" checked />
+                            {% else %}
+                            <input type="checkbox" name="filter_replies" id="filter_replies" />
+                            {% endif %}
+                        </li>
+                    </ul>
+                </span>
+            </form>
+        </section>
+
+        <section class="output-container">
+            <div class="example">
+                <h5>{{context.query}}</h5>
+                <p></p>
+                <p id="positive">Positive: {{resultModel.positivePerc}}%</p>
+                <p id="negative">Negative: {{resultModel.negativePerc}}%</p>
+                <p id="neutral">Neutral: {{resultModel.neutralPerc}}%</p>
+                <br />
+                <p>Some of the tweets fetched:</p>
+                {% for pTweet in resultModel.positiveTweets %}
+                <p id="positive">{{forloop.counter}}. {{pTweet.text}}</p>
+                {% endfor %}
+                <br />
+                {% for nTweet in resultModel.negativeTweets %}
+                <p id="negative">{{forloop.counter}}. {{nTweet.text}}</p>
+                {% endfor %}
+                <br />
+                {% for neutTweet in resultModel.neutralTweets %}
+                <p id="neutral">{{forloop.counter}}. {{neutTweet.text}}</p>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section class="examples-container">
+            <h2>Examples</h2>
+            <div class="examples-list">
+                <div class="example">
+                    <h5>Bitcoin</h5>
+                    <p id="positive">Positive: 50%</p>
+                    <p id="negative">Negative: 10%</p>
+                    <p id="neutral">Neutral: 40%</p>
+                </div>
+                <div class="example">
+                    <h5>Adani Stocks</h5>
+                    <p id="positive">Positive: 20%</p>
+                    <p id="negative">Negative: 10%</p>
+                    <p id="neutral">Neutral: 70%</p>
+                </div>
+                <div class="example">
+                    <h5>Blockchain</h5>
+                    <p id="positive">Positive: 60%</p>
+                    <p id="negative">Negative: 10%</p>
+                    <p id="neutral">Neutral: 30%</p>
+                </div>
+                <div class="example">
+                    <h5>JEE Mains Exams</h5>
+                    <p id="positive">Positive: 20%</p>
+                    <p id="negative">Negative: 30%</p>
+                    <p id="neutral">Neutral: 50%</p>
+                </div>
+                <div class="example">
+                    <h5>Covid 19</h5>
+                    <p id="positive">Positive: 10%</p>
+                    <p id="negative">Negative: 40%</p>
+                    <p id="neutral">Neutral: 50%</p>
+                </div>
+                <div class="example">
+                    <h5>Travel</h5>
+                    <p id="positive">Positive: 30%</p>
+                    <p id="negative">Negative: 20%</p>
+                    <p id="neutral">Neutral: 50%</p>
+                </div>
+                <div class="example">
+                    <h5>India</h5>
+                    <p id="positive">Positive: 60%</p>
+                    <p id="negative">Negative: 5%</p>
+                    <p id="neutral">Neutral: 35%</p>
+                </div>
+            </div>
+        </section>
+        <p class="examples"></p>
+    </div>
+</body>
+
+</html>
