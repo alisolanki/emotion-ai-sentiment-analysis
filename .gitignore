@@ -9,7 +9,7 @@ __pycache__/
 # Distribution / packaging
 bin/
 build/
-staticfiles-build/
+staticfiles_build/
 develop-eggs/
 dist/
 eggs/
