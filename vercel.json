@@ -12,15 +12,13 @@
       "config": {
         "distDir": "staticfiles_build"
       }
-    },
-    {
-      "routes": [
-        {
-          "src": "/static/(.*)",
-          "dest": "/static/$1"
-        },
-        { "src": "/(.*)", "dest": "sentiment_analysis/wsgi.py" }
-      ]
     }
+  ],
+  "routes": [
+    {
+      "src": "/static/(.*)",
+      "dest": "/static/$1"
+    },
+    { "src": "/(.*)", "dest": "sentiment_analysis/wsgi.py" }
   ]
 }
