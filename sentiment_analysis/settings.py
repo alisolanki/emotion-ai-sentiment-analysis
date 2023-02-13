@@ -53,10 +53,10 @@ MIDDLEWARE = [
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://alisolanki.com/',
-    'https://emotion-ai.alisolanki.com/',
-    'https://emotion-ai-sentiment-analysis-production.up.railway.app/',
-    'https://emotion-ai-sentiment-analysis-7p6hk7mo2-alisolanki.vercel.app/',
+    'https://alisolanki.com',
+    'https://emotion-ai.alisolanki.com',
+    'https://emotion-ai-sentiment-analysis-production.up.railway.app',
+    'https://emotion-ai-sentiment-analysis-7p6hk7mo2-alisolanki.vercel.app',
 ]
 
 ROOT_URLCONF = 'sentiment_analysis.urls'
