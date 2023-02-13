@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "whitenoise.runserver_nostatic",
 ]
 
 MIDDLEWARE = [
@@ -48,6 +49,13 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://alisolanki.com/',
+    'https://emotion-ai.alisolanki.com/',
+    'https://emotion-ai-sentiment-analysis-production.up.railway.app/'
 ]
 
 ROOT_URLCONF = 'sentiment_analysis.urls'
@@ -80,6 +88,11 @@ WSGI_APPLICATION = 'sentiment_analysis.wsgi.application'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+
+STORAGES = {"staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
 
 
 # Password validation
