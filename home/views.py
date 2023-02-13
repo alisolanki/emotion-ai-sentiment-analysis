@@ -63,4 +63,3 @@ def index(request):
         #   "positiveTweets", "negativeTweets", "neutralTweets"}
     print("resultModel: ", resultModel)
     return render(request, 'home.html', {'context': context,'resultModel': resultModel})
-
