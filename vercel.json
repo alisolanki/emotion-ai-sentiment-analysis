@@ -4,7 +4,7 @@
     {
       "src": "sentiment_analysis/wsgi.py",
       "use": "@vercel/python",
-      "config": { "maxLambdaSize": "50mb", "runtime": "python3.9" }
+      "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
     },
     {
       "src": "build_files.sh",
@@ -12,6 +12,11 @@
       "config": {
         "distDir": "staticfiles_build"
       }
+    },
+    {
+      "src": "main.py",
+      "use": "@vercel/python",
+      "config": { "maxLambdaSize": "50mb", "runtime": "python3.9" }
     }
   ],
   "routes": [
