@@ -1,6 +1,5 @@
 from django.shortcuts import render
-# from main import checker
-# import tweepy
+from main import checker
 
 # Create your views here.
 def index(request):
@@ -59,7 +58,7 @@ def index(request):
         
         print(context)
         
-        # resultModel = checker(context)
+        resultModel = checker(context)
         #resultModel = {"positivePerc", "negativePerc", "neutralPerc",
         #   "positiveTweets", "negativeTweets", "neutralTweets"}
     print("resultModel: ", resultModel)
