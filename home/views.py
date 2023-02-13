@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from main import checker
+# from main import checker
+import tweepy
 
 # Create your views here.
 def index(request):
