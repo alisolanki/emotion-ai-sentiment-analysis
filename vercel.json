@@ -15,7 +15,7 @@
     },
     {
       "src": "main.py",
-      "use": "@vercel/python",
+      "use": "@vercel/tweepy",
       "config": { "maxLambdaSize": "50mb", "runtime": "python3.9" }
     }
   ],
