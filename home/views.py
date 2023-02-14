@@ -19,7 +19,7 @@ def index(request):
         'min_replies': min_replies,
         'max_tweets': max_tweets,
         'filter_replies': filter_replies,
-        'polarity': 0.5,
+        'polarity': 0,
         'subjectivity': 0.5,
     }
     resultModel = {

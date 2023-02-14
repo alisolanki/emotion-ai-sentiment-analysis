@@ -5,8 +5,9 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="static/favicon.ico" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     {% load static %}
+    <link rel="icon" href="{% static 'favicon.ico' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}" />
     <title>Emotion AI | Sentiment Analysis | Ali Solanki</title>
 </head>
@@ -18,22 +19,20 @@
             <h1>Emotion AI</h1>
             <h3>by Ali Solanki</h3>
             <p>
-                Enter a word or a sentence to analyze people's sentiment towards by fetching tweets from Twitter
+                Enter a word or a sentence to analyze people's sentiment towards it by fetching tweets from Twitter
             </p>
         </section>
 
         <section class="search-container">
+            <button class="filters-btn" onclick="myFunction()"><i class="fa fa-gear"></i></button>
             <form action="" id="checker" method="POST">
                 {% csrf_token %}
                 <span class="search-box">
                     <input type="text" name="query" value="{{context.query}}" placeholder="Check analysis for..." />
                     <button type="submit" form="checker">Submit</button>
                 </span>
-                <!-- <button id="filter-btn">
-            <span class="filter-icon"></span>
-            <span class="filter-text">Filters</span>
-          </button> -->
-                <span class="filters-container">
+
+                <span class="filters-container" id="filters-cont" style="display:none">
                     <ul class="filters-list">
                         <li>
                             <label for="min_faves">Minimum Likes</label>
@@ -157,5 +156,16 @@
         <p class="examples"></p>
     </div>
 </body>
+
+<script>
+    function myFunction() {
+        var x = document.getElementById("filters-cont");
+        if (x.style.display === "flex") {
+            x.style.display = "none";
+        } else {
+            x.style.display = "flex";
+        }
+    }
+</script>
 
 </html>

@@ -76,6 +76,19 @@ input:focus {
     cursor: pointer;
 }
 
+button.filters-btn {
+    background: black;
+    color: #7cff7c;
+    border: none;
+    font-size: x-large;
+    margin-bottom: 2em;
+    transition: all 0.2s ease-in-out;
+}
+button.filters-btn:hover {
+    color: #f1f1f1;
+    cursor: pointer;
+}
+
 .filters-container ul {
     display: flex;
     flex-direction: row;
