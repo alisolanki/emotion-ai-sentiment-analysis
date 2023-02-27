@@ -89,6 +89,11 @@ button.filters-btn:hover {
     cursor: pointer;
 }
 
+.filters-container {
+    display: flex;
+    justify-content: center;
+}
+
 .filters-container ul {
     display: flex;
     flex-direction: row;
